@@ -2,7 +2,6 @@ package net.natroutter.postimies;
 
 import net.natroutter.postimies.Utilities.Config;
 import net.natroutter.postimies.Utilities.Database;
-import net.natroutter.postimies.Utilities.Utils;
 import net.natroutter.postimies.commands.*;
 import net.natroutter.postimies.handlers.AutoChecker;
 import net.natroutter.postimies.handlers.Bot;
@@ -69,21 +68,24 @@ public class Postimies {
         bot.connect();
 
         //start console!
-        Console(true);
+        Console();
     }
 
-    private static void Console(boolean first) {Console(first, false);}
-    private static void Console(boolean first, boolean err) {
-        if (!err) {
-            System.out.print("PostiMies: ");
-        }
+    private static Integer dummy = 0;
+    private static void Console() {Console(false);}
+    private static void Console(boolean err) {
+        if (!err) { System.out.print("PostiMies: "); }
+
+        if (dummy == -1) { return; } // this is stupid but my intellij throws some stupid error if i dont have this
+        dummy++;
+
         if (scan.hasNextLine() && !err) {
             String input = scan.nextLine();
             CommandHandling(input);
-            Console(false, false);
+            Console(false);
         } else {
             try {Thread.sleep(100L);} catch (Exception ignored) {}
-            Console(false, true);
+            Console(true);
         }
     }
 
