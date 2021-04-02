@@ -21,23 +21,26 @@ post packages and notify your package get get updated
 6. reveive update messages when your package status changes
 
 ## Installation
-###Debian/Ubuntu:
-1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/)  
-2. make new folder to some directory where you want to keep the bot and drop downloaded jar file to that directory  
-3. create new start file ``start.sh``
-4. insert this into start file ``java -jar Postimies.jar`` and then close the file
-5. Give file permissions to be executed ```chmod 755 ./start.sh```
-6. Run start script with ``./start.sh``
-7. when console has closed open ```config.json``` file which is generated to same folder where ``Postimies.jar`` is located
-8. login or register new account in [trackingmore.com](https://www.trackingmore.com/)
-9. Acquire trackingmore apikey from your account settings [here](https://my.trackingmore.com/get_apikey.php?lang=en)
-10. Create new bot in discord developer portal [here](https://discord.com/developers/applications)
-11. add bot to your discord server and make sure that server memebers can send you private messages!
-12. add trackingmore and discord bot token to ```config.json```
-13. add your discord user id and name to whitelist
-14. start the bot again with ``./start.sh`` bot should send status online message to your private messages!
-15. You are Finished
-###Windows:
+<h1 style="font-size:25px;margin:0px;font-weight:700;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji">Debian/Ubuntu</h1> 
+
+1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/)   
+2. make new folder to some directory where you want to keep the bot and drop downloaded jar file to that directory   
+3. create new start file ``start.sh``   
+4. insert this into start file ``java -jar Postimies.jar`` and then close the file   
+5. Give file permissions to be executed ```chmod 755 ./start.sh```   
+6. Run start script with ``./start.sh``   
+7. when console has closed open ```config.json``` file which is generated to same folder where ``Postimies.jar`` is located   
+8. login or register new account in [trackingmore.com](https://www.trackingmore.com/)   
+9. Acquire trackingmore apikey from your account settings [here](https://my.trackingmore.com/get_apikey.php?lang=en)   
+10. Create new bot in discord developer portal [here](https://discord.com/developers/applications)   
+11. add bot to your discord server and make sure that server memebers can send you private messages!   
+12. add trackingmore and discord bot token to ```config.json```   
+13. add your discord user id and name to whitelist   
+14. start the bot again with ``./start.sh`` bot should send status online message to your private messages!   
+15. You are Finished  
+ 
+<h1 style="font-size:25px;margin:0px;font-weight:700;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji">Windows</h1>   
+
 1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/)
 2. make new folder to some directory where you want to keep the bot and drop downloaded jar file to that directory
 3. create new start file ``start.bat``
