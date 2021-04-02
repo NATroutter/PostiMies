@@ -23,11 +23,12 @@ post packages and notify your package get get updated
 ## Installation
 ### Debian/ubuntu
 
-1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/)
+1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/lastBuild/)
 2. make new folder to some directory where you want to keep the bot and  
    drop downloaded jar file to that directory
 3. create new start file ``start.sh``
-4. insert this into start file ``java -jar Postimies.jar`` and then close the file
+4. insert this into start file ``java -jar Postimies-<version>.jar`` and replace <version>   
+   with correct version number then close the file
 5. Give file permissions to be executed ```chmod 755 ./start.sh```
 6. Run start script with ``./start.sh``
 7. when console has closed open ```config.json``` file which is generated to  
@@ -45,11 +46,12 @@ post packages and notify your package get get updated
 
 ### Windows
 
-1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/)
+1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/lastBuild/)
 2. make new folder to some directory where you want to keep the bot and  
    drop downloaded jar file to that directory
 3. create new start file ``start.bat``
-4. insert this into start file ``java -jar Postimies.jar`` and then close the file
+4. insert this into start file ``java -jar Postimies-<version>.jar`` and replace <version>   
+   with correct version number then close the file
 5. Run start script with ``./start.bat``
 6. when console has closed open ```config.json``` file which is generated to  
    same folder where ``Postimies.jar`` is located
