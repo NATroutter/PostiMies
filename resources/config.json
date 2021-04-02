@@ -1,0 +1,12 @@
+{
+  "DiscordApiKey": "",
+  "TrackingMoreApiKey": "",
+  "CommandPrefix": ".",
+  "RemoveWhenAraived": true,
+  "Whitelist": [
+    {
+      "UserName": "NATroutter",
+      "UserID": 162669508866211841
+    }
+  ]
+}
