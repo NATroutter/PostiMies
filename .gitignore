@@ -1,1 +1,6 @@
 /target/
+/META-INF/
+/out/
+/config/
+/.idea/
+/PostiMies.iml
