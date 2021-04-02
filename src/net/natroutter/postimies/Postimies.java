@@ -76,7 +76,7 @@ public class Postimies {
     private static void Console(boolean err) {
         if (!err) { System.out.print("PostiMies: "); }
 
-        if (dummy == -1) { return; } // this is stupid but my intellij throws some stupid error if i dont have this
+        if (dummy == -1) { return; } //  this is stupid but my intellij throws some stupid error if i dont have this
         dummy++;
 
         if (scan.hasNextLine() && !err) {
