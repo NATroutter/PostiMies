@@ -29,7 +29,8 @@ post packages and notify your package get get updated
 3. create new start file ``start.sh``
 4. insert this into start file ``java -jar Postimies-<version>.jar`` and replace <version>   
    with correct version number then close the file
-5. Give file permissions to be executed ```chmod 755 ./start.sh```
+5. Give file permissions to be executed ```chmod 755 ./start.sh ./Postimies-<version>.jar```   
+   remember to replace <version> with correct version number then close the file
 6. Run start script with ``./start.sh``
 7. when console has closed open ```config.json``` file which is generated to  
    same folder where ``Postimies.jar`` is located
