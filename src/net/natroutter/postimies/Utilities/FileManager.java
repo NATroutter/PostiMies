@@ -39,9 +39,9 @@ public class FileManager {
             String ConfDir = ConfigPath + "/" + folder + "/";
             File Dir = new File(ConfDir);
             if(Dir.exists() && !Dir.isDirectory()) {
-
+                boolean UselessIdk = false;
             } else {
-                Dir.mkdirs();
+                boolean success = Dir.mkdirs();
             }
             File CfgFile = new File(ConfDir + fileName);
             if (!CfgFile.exists()) {
@@ -64,7 +64,6 @@ public class FileManager {
             Logger.Info(fileName + " Loaded!");
         } catch (Exception e) {
             Logger.Error("Can't Read " + fileName + "\n" + e.getMessage());
-            return;
         }
     }
 
@@ -82,9 +81,6 @@ public class FileManager {
 
         int readBytes;
         byte[] buffer = new byte[4096];
-
-        System.out.println("TEST: " + ConfigPath + "/" + folder + "/" + resourceName);
-
         OutputStream resStreamOut = new FileOutputStream(ConfigPath + "/" + folder + "/" + resourceName);
 
         while ((readBytes = stream.read(buffer)) > 0) {
@@ -133,7 +129,7 @@ public class FileManager {
         File file = new File(path);
         try {
             if (!file.exists()) {
-                file.createNewFile();
+                boolean success = file.createNewFile();
             }
 
             FileWriter fw = new FileWriter(file);
@@ -147,7 +143,7 @@ public class FileManager {
             }
             bw.close();
             return true;
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
         return false;
     }
 

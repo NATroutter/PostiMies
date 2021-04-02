@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Icon;
+import net.dv8tion.jda.api.managers.AccountManager;
 import net.natroutter.postimies.Utilities.Config;
 import net.natroutter.postimies.Utilities.Logger;
 import net.natroutter.postimies.Utilities.Utils;
@@ -48,7 +49,10 @@ public class Bot {
             Logger.Warn("Connecting...");
             jda = builder.build();
 
-            jda.getSelfUser().getManager().setName("Postimies");
+            jda.awaitReady();
+
+
+            AccountManager acc = jda.getSelfUser().getManager().setName("Postimies");
             try {
                 jda.getSelfUser().getManager().setAvatar(Icon.from(
                         new URL("https://cdn.nat.gs/img/Postimies_logo.png").openStream()
@@ -56,8 +60,6 @@ public class Bot {
             } catch (Exception ignored) {
                 Logger.Error("Failed to flech profile picture from server!");
             }
-
-            jda.awaitReady();
 
             Connected = true;
 

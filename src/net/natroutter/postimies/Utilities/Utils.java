@@ -14,6 +14,7 @@ import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressWarnings("deprecation")
 public class Utils {
 
     private static final Bot bot = Postimies.getBot();
@@ -22,7 +23,7 @@ public class Utils {
     private static final Tracking Tracking = Postimies.getTracking();
 
 
-    public static enum Status {
+    public enum Status {
         Online, ShuttingDown
     }
 
@@ -86,9 +87,9 @@ public class Utils {
         String status = null;
         String subStatus = null;
         String details = null;
-        String createDate = null;
-        String updateDate = null;
-        String weight = "";
+        String createDate;
+        String updateDate;
+        String weight;
         if (data.delivery_status != null) {
             status = Tracking.translateStatus(DeliveryStatysType.normal, data.delivery_status);
             status = "\n``Status:`` _"+status+"_";
@@ -185,6 +186,7 @@ public class Utils {
             date.setHours(Integer.parseInt(splitted2[0]));
             date.setMinutes(Integer.parseInt(splitted2[1]));
 
+
             SimpleDateFormat newFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
             return newFormat.format(date);
 
@@ -203,64 +205,34 @@ public class Utils {
                 Logger.Error("Invalid user: (" + wUser.UserName + ":" + wUser.UserID + ")");
             }
 
-            bot.getApi().retrieveUserById(wUser.UserID).queue(user -> {
-                user.openPrivateChannel().queue(c -> {
+            bot.getApi().retrieveUserById(wUser.UserID).queue(user -> user.openPrivateChannel().queue(c -> {
 
-                    EmbedBuilder builder = EmbedBase();
+                EmbedBuilder builder = EmbedBase();
 
-                    if (stat.equals(Status.Online)) {
-                        builder.setTitle("✅ Status: online");
-                        builder.setDescription("Hello i'm PostiMies i will help you with your post package tracking!\nIf you want to know more just type ``.help``");
-                        c.sendMessage(builder.build()).queue();
+                if (stat.equals(Status.Online)) {
+                    builder.setTitle("✅ Status: online");
+                    builder.setDescription("Hello i'm PostiMies i will help you with your post package tracking!\nIf you want to know more just type ``.help``");
+                    c.sendMessage(builder.build()).queue();
 
-                    } else if (stat.equals(Status.ShuttingDown)) {
-                        builder.setTitle("❌ Status: Shuttingdown");
-                        builder.setDescription("Sorry but i have to go now :(");
-                        c.sendMessage(builder.build()).queue();
+                } else if (stat.equals(Status.ShuttingDown)) {
+                    builder.setTitle("❌ Status: Shuttingdown");
+                    builder.setDescription("Sorry but i have to go now :(");
+                    c.sendMessage(builder.build()).queue();
 
-                        bot.getApi().shutdown();
-                        bot.setConnected(false);
-                        Logger.Warn("Disconnected!");
-                        if (quit) {
-                            System.exit(0);
-                        }
+                    bot.getApi().shutdown();
+                    bot.setConnected(false);
+                    Logger.Warn("Disconnected!");
+                    if (quit) {
+                        System.exit(0);
                     }
-                });
-            });
+                }
+            }));
         }
     }
 
     public static void SendEmbed(String userId, MessageEmbed emb) {
-        bot.getApi().retrieveUserById(userId).queue(user -> {
-            user.openPrivateChannel().queue(c -> {
-                c.sendMessage(emb).queue();
-            });
-        });
+        bot.getApi().retrieveUserById(userId).queue(user -> user.openPrivateChannel().queue(c -> c.sendMessage(emb).queue()));
     }
 
-
-    public static String timeIn(long timeSeconds) {
-        int days = (int) (timeSeconds / 86400);
-        int hours = (int) (timeSeconds / 3600) % 24;
-        int minutes = (int) (timeSeconds / 60) % 60;
-        long seconds = timeSeconds % 60;
-
-        String left = "";
-        if (days < 1) {
-            if (hours < 1) {
-                if (minutes < 1) {
-                    left = seconds + " seconds";
-                } else {
-                    left =  minutes + " minutes " + seconds + " seconds";
-                }
-            } else {
-                left =  hours + " hours " + minutes + " minutes " + seconds + " seconds";
-            }
-        } else {
-            left = days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
-        }
-        return left;
-
-    }
 
 }

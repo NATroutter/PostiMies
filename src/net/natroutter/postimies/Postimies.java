@@ -2,6 +2,7 @@ package net.natroutter.postimies;
 
 import net.natroutter.postimies.Utilities.Config;
 import net.natroutter.postimies.Utilities.Database;
+import net.natroutter.postimies.Utilities.Utils;
 import net.natroutter.postimies.commands.*;
 import net.natroutter.postimies.handlers.AutoChecker;
 import net.natroutter.postimies.handlers.Bot;
@@ -28,7 +29,25 @@ public class Postimies {
 
     public static void main(String[] args) {
 
+        System.out.println(" ");
+        System.out.println("  _____          _   _           _           ");
+        System.out.println(" |  __ \\        | | (_)         (_)          ");
+        System.out.println(" | |__) |__  ___| |_ _ _ __ ___  _  ___  ___ ");
+        System.out.println(" |  ___/ _ \\/ __| __| | '_ ` _ \\| |/ _ \\/ __|");
+        System.out.println(" | |  | (_) \\__ \\ |_| | | | | | | |  __/\\__ \\");
+        System.out.println(" |_|   \\___/|___/\\__|_|_| |_| |_|_|\\___||___/");
+        System.out.println(" ");
+
         cfg = new Config("config.json");
+
+        if (cfg.getDiscordApiKey() == null || cfg.getDiscordApiKey().length() < 51 && cfg.getTrackingMoreApiKey() == null || cfg.getTrackingMoreApiKey().length() < 33) {
+
+            System.out.println(" ");
+            System.out.println("You need to configure discord api key & trackingmore api key in config.json");
+            System.out.println(" ");
+            System.exit(0);
+            return;
+        }
 
         database = new Database();
         tracking = new Tracking();
@@ -99,7 +118,9 @@ public class Postimies {
             return true;
 
         } else if (cmd.equalsIgnoreCase("quit")) {
-            bot.disconnect();
+            if (bot.isConnected()) {
+                bot.disconnect();
+            }
             System.exit(0);
             return true;
         }
