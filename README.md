@@ -11,7 +11,7 @@ post packages and notify your package get get updated
 
 </div>
 
-## Features   
+## Features
 
 1. Configurable
 2. Simple
@@ -20,8 +20,8 @@ post packages and notify your package get get updated
 5. Tracking your packages day and night non stop
 6. reveive update messages when your package status changes
 
-## Installation   
-<h1 style="font-size:25px;margin: 0px;font-weight: 700;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji">Debian/ubuntu</h1>
+## Installation
+### Debian/ubuntu
 
 1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/)
 2. make new folder to some directory where you want to keep the bot and drop downloaded jar file to that directory
@@ -37,9 +37,9 @@ post packages and notify your package get get updated
 12. add trackingmore and discord bot token to ```config.json```
 13. add your discord user id and name to whitelist
 14. start the bot again with ``./start.sh`` bot should send status online message to your private messages!
-15. You are Finished  
+15. You are Finished
 
-<h1 style="font-size:25px;margin: 0px;font-weight: 700;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji">Windows</h1>
+### Windows
 
 1. Download newest release from [jenkins](https://hub.nat.gs/jenkins/job/Postimies/)
 2. make new folder to some directory where you want to keep the bot and drop downloaded jar file to that directory
