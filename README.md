@@ -1,4 +1,4 @@
-![banner](https://cdn.nat.gs/img/Postimies_banner.png)
+![banner](https://cdn.nat.gg/img/Postimies_banner.png)
 
 <div align="center">
 <h1 style="margin: 0px;font-weight: 700;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji">Postimies</h1>
